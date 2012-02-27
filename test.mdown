@@ -1,0 +1,9 @@
+[LRU](acro:Least Recently Used)
+
+This is a sentence about the [LRU]() replacement policy. [LRU]() is interesting, in that it isn't at all.
+
+This is a new paragraph.
+
+This is a new paragraph with an [unchanged link](http://www.google.com).
+
+This is a link with the same acronym, [LRU](http://www.google.com) but that points somewhere else.

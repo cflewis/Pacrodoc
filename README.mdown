@@ -1,0 +1,32 @@
+Pacrodoc
+=========
+Pacrodoc is a small tool that lets you define acronyms in Pandoc using the link syntax, to do the bare minimum that the LaTeX acronym package does. You can define acronyms, then the first time the acronym is used it is written out in full, and every subsequent time the acronym is used instead.
+
+Usage
+-----
+Put Pacrodoc in the middle of the Pandoc JSON stream, like so:
+
+    cat my_file.mdown | pandoc -t json | python pacrodoc.py | pandoc -f json -t markdown
+
+This writes out the file to STDOUT, which is fed to Pandoc which then parses the Pandoc file into JSON. This is then passed to Pacrodoc that parses the Pandoc JSON data, modifies it to put in the acronyms, and then sends it back out to Pandoc to read that JSON data again. From there, you can select whichever output format you'd have wanted in the first place.
+
+Defining acronyms
+-----------------
+You can define acronyms by making a link like this:
+
+    [ACRONYM](acro:My Long Name)
+
+For example:
+
+    [UK](acro:United Kingdom)
+
+Limitations
+-----------
+* For now, the acronym used in the square brackets has to be the acronym you want to appear in the text.
+* When an acronym is defined, it exists as part of a paragraph that Pandoc processes. The paragraph is not stripped, so if the acronym sits on its own paragraph, a blank paragraph break is inserted, which is noticable in some output formats (like HTML).
+
+About
+-----
+[BSD licensed](http://opensource.org/licenses/bsd-license.php).
+
+Pull requests are welcome.
