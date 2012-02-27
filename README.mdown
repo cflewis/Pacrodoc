@@ -24,6 +24,7 @@ Limitations
 -----------
 * For now, the acronym used in the square brackets has to be the acronym you want to appear in the text.
 * When an acronym is defined, it exists as part of a paragraph that Pandoc processes. The paragraph is not stripped, so if the acronym sits on its own paragraph, a blank paragraph break is inserted, which is noticable in some output formats (like HTML).
+* Pacrodoc cheats when it outputs the text. Really, it should output properly encoded Pandoc output, using tokens like 'Space' for spaces. Instead, it just outputs a big String with the spaces in it. This may cause unintended side-effects in Pandoc or if Pacrodoc is used in conjunction with other scripts that modify a JSON stream.
 
 About
 -----
